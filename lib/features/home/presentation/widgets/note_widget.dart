@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:notes_app/core/routing/app_router.dart';
+import 'package:notes_app/core/routing/routing_methods.dart';
+import 'package:notes_app/features/home/presentation/bloc/home_bloc.dart';
+import 'package:notes_app/features/home/presentation/pages/note_details_page.dart';
 
 import '../../domain/entities/note.dart';
 
@@ -19,6 +23,10 @@ class NoteWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(32.w),
       ),
       child: ListTile(
+        onTap: () {
+          AppRouter.homeBloc.add(SelectNoteEvent(note: note));
+          pushToNamedScreen(context, routeName: NoteDetailsPage.id);
+        },
         title: Text(
           note.title,
           style: GoogleFonts.poppins(

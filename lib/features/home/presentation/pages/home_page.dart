@@ -9,7 +9,7 @@ import '../bloc/home_bloc.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
-
+  static const String id = '/HomePage';
   @override
   Widget build(BuildContext context) {
     return BlocProvider.value(
@@ -18,21 +18,10 @@ class HomePage extends StatelessWidget {
         appBar: customAppBar(
           title: 'Notes',
           textStyle: TextStyle(fontSize: 50.sp),
-          actions: [
-            Container(
-              margin: EdgeInsets.only(right: 32.w),
-              height: 110.h,
-              width: 110.w,
-              decoration: BoxDecoration(
-                color: Color(0xFF3B3B3B),
-                borderRadius: BorderRadius.circular(40.w),
-              ),
-              child: IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.search, color: Colors.white),
-              ),
-            ),
-          ],
+          child: IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.search, color: Colors.white),
+          ),
         ),
         body: BlocBuilder<HomeBloc, HomeState>(
           builder: (context, state) {

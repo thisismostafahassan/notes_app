@@ -15,19 +15,24 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       description: 'We will make it',
     ),
     Note(
-      title: 'Notes App',
+      title: 'Notes App 1',
       date: DateTime.now(),
       color: Colors.blueGrey,
       description: 'We will make it',
     ),
     Note(
-      title: 'Notes App',
+      title: 'Notes App 2',
       date: DateTime.now(),
       color: Colors.blueGrey,
       description: 'We will make it',
     ),
   ];
+
+  late Note selectedNote;
   HomeBloc() : super(HomeInitial()) {
-    on<HomeEvent>((event, emit) {});
+    on<SelectNoteEvent>((event, emit) {
+      selectedNote = event.note;
+      emit(SelectNoteState());
+    });
   }
 }
