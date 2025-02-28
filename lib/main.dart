@@ -5,24 +5,32 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:notes_app/core/helper/app_bloc_observer.dart';
+import 'package:notes_app/core/routing/app_router.dart';
+import 'package:notes_app/core/themes/theme_data/theme_data.dart';
+import 'package:notes_app/features/home/presentation/bloc/home_bloc.dart';
+import 'package:notes_app/features/home/presentation/pages/home_page.dart'
+    show HomePage;
 
 void main() {
   // #1
-  WidgetsFlutterBinding.ensureInitialized();
-  // #2
   Bloc.observer = AppBlocObserver();
-  // #3
+  AppRouter appRouter = AppRouter();
+  // #2
   runZonedGuarded(
     () {
+      // #3
+      WidgetsFlutterBinding.ensureInitialized();
       runApp(
         ScreenUtilInit(
           designSize: Size(1080, 1920),
           minTextAdapt: true,
           splitScreenMode: true,
           child: MultiBlocProvider(
-            providers: [],
+            providers: [BlocProvider(create: (context) => HomeBloc())],
             child: MaterialApp(
+              onGenerateRoute: appRouter.onGenerateRoute,
               debugShowCheckedModeBanner: false,
+              theme: theLightTheme(),
               home: MyApp(),
             ),
           ),
@@ -33,6 +41,7 @@ void main() {
       log('❌ Uncaught Error: $error');
     },
   );
+  //
 }
 
 class MyApp extends StatelessWidget {
@@ -40,6 +49,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const HomePage();
   }
 }
