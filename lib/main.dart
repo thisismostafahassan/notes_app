@@ -8,8 +8,7 @@ import 'package:notes_app/core/helper/app_bloc_observer.dart';
 import 'package:notes_app/core/routing/app_router.dart';
 import 'package:notes_app/core/themes/theme_data/theme_data.dart';
 import 'package:notes_app/features/home/presentation/bloc/home_bloc.dart';
-import 'package:notes_app/features/home/presentation/pages/home_page.dart'
-    show HomePage;
+import 'package:notes_app/features/home/presentation/pages/home_page.dart';
 
 void main() {
   // #1

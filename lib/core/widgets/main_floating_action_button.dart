@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:notes_app/core/widgets/custom_text_form_field.dart';
 
 class MainFloatingActionButton extends StatelessWidget {
-  final TextEditingController? controller;
-  const MainFloatingActionButton({super.key, this.controller});
+  final TextEditingController? titleController;
+  final TextEditingController? descriptionController;
+  final String? titleHint;
+  final String? discriptionHint;
+  const MainFloatingActionButton({
+    super.key,
+    this.titleController,
+    this.descriptionController,
+    this.titleHint,
+    this.discriptionHint,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,14 +31,14 @@ class MainFloatingActionButton extends StatelessWidget {
               child: Form(
                 child: Column(
                   children: [
-                    TextFormField(
-                      autocorrect: true,
-                      controller: controller,
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                      ),
+                    CustomTextFormField(
+                      controller: titleController,
+                      hint: titleHint,
+                    ),
+
+                    CustomTextFormField(
+                      controller: titleController,
+                      hint: titleHint,
                     ),
                   ],
                 ),

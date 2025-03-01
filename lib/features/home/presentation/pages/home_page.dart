@@ -37,7 +37,8 @@ class HomePage extends StatelessWidget {
           },
         ),
         floatingActionButton: MainFloatingActionButton(
-          controller: HomeBloc.titleController,
+          titleController: HomeBloc.titleController,
+          titleHint: 'Title',
         ),
       ),
     );

@@ -10,6 +10,13 @@ ThemeData theLightTheme() {
         fontWeight: FontWeight.bold,
       ),
     ),
+    inputDecorationTheme: InputDecorationTheme(
+      hintStyle: TextStyle(color: const Color.fromARGB(255, 177, 165, 165)),
+      border: OutlineInputBorder(
+        borderSide: BorderSide(color: const Color.fromARGB(255, 177, 165, 165)),
+        borderRadius: BorderRadius.circular(16),
+      ),
+    ),
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       backgroundColor: Colors.blueGrey.shade400,
     ),
