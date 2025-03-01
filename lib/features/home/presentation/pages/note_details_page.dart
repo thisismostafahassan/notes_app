@@ -18,6 +18,7 @@ class NoteDetailsPage extends StatelessWidget {
             icon: Icon(Icons.done, color: Colors.white),
           ),
         ),
+        body: Column(),
       ),
     );
   }

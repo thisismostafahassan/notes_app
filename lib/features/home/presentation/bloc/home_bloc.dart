@@ -7,6 +7,9 @@ part 'home_event.dart';
 part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
+  static TextEditingController titleController = TextEditingController();
+  TextEditingController descriptionController = TextEditingController();
+
   List<Note> notes = [
     Note(
       title: 'Notes App',

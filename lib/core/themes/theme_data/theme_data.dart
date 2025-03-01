@@ -10,5 +10,8 @@ ThemeData theLightTheme() {
         fontWeight: FontWeight.bold,
       ),
     ),
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      backgroundColor: Colors.blueGrey.shade400,
+    ),
   );
 }

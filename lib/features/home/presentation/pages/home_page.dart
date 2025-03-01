@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:notes_app/core/routing/app_router.dart';
+import 'package:notes_app/core/widgets/main_floating_action_button.dart';
 import 'package:notes_app/features/home/presentation/widgets/note_widget.dart';
 
 import '../../../../core/widgets/custom_app_bar.dart';
@@ -34,6 +35,9 @@ class HomePage extends StatelessWidget {
               },
             );
           },
+        ),
+        floatingActionButton: MainFloatingActionButton(
+          controller: HomeBloc.titleController,
         ),
       ),
     );
