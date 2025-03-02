@@ -10,7 +10,8 @@ import '../../domain/entities/note.dart';
 
 class NoteWidget extends StatelessWidget {
   final Note note;
-  const NoteWidget({super.key, required this.note});
+  final int index;
+  const NoteWidget({super.key, required this.note, required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +42,9 @@ class NoteWidget extends StatelessWidget {
           style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
         ),
         trailing: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            AppRouter.homeBloc.add(RemoveNoteEvent(index: index));
+          },
           icon: Icon(Icons.delete, color: Colors.black),
         ),
       ),

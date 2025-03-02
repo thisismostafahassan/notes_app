@@ -12,3 +12,12 @@ class SelectNoteEvent extends HomeEvent {
 
   const SelectNoteEvent({required this.note});
 }
+
+//
+class AddNoteEvent extends HomeEvent {}
+
+//
+class RemoveNoteEvent extends HomeEvent {
+  final int index;
+  const RemoveNoteEvent({required this.index});
+}

@@ -31,14 +31,17 @@ class HomePage extends StatelessWidget {
               itemCount: homeBloc.notes.length,
               shrinkWrap: true,
               itemBuilder: (context, index) {
-                return NoteWidget(note: homeBloc.notes[index]);
+                return NoteWidget(note: homeBloc.notes[index], index: index);
               },
             );
           },
         ),
         floatingActionButton: MainFloatingActionButton(
+          context: context,
           titleController: HomeBloc.titleController,
           titleHint: 'Title',
+          descriptionController: HomeBloc.descriptionController,
+          descriptionHint: 'Description',
         ),
       ),
     );

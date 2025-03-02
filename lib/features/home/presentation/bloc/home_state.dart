@@ -10,3 +10,7 @@ abstract class HomeState extends Equatable {
 class HomeInitial extends HomeState {}
 
 class SelectNoteState extends HomeState {}
+
+class AddNoteState extends HomeState {}
+
+class RemoveNoteState extends HomeState {}
