@@ -37,5 +37,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       notes.removeAt(event.index);
       emit(RemoveNoteState());
     });
+    //
   }
 }
