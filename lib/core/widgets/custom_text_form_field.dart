@@ -14,10 +14,10 @@ class CustomTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      style: TextStyle(color: Colors.white),
       maxLines: maxLines,
       autocorrect: true,
       controller: controller,
-
       decoration: InputDecoration(hintText: hint),
     );
   }
