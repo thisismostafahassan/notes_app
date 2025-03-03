@@ -20,7 +20,7 @@ class NoteWidget extends StatelessWidget {
       width: double.infinity,
       margin: EdgeInsets.symmetric(vertical: 16.h, horizontal: 24.w),
       decoration: BoxDecoration(
-        color: note.color,
+        color: Colors.blueGrey,
         borderRadius: BorderRadius.circular(32.w),
       ),
       child: ListTile(

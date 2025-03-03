@@ -28,10 +28,13 @@ class HomePage extends StatelessWidget {
           builder: (context, state) {
             final homeBloc = context.read<HomeBloc>();
             return ListView.builder(
-              itemCount: homeBloc.notes.length,
+              itemCount: homeBloc.notesBox.length,
               shrinkWrap: true,
               itemBuilder: (context, index) {
-                return NoteWidget(note: homeBloc.notes[index], index: index);
+                return NoteWidget(
+                  note: homeBloc.notesBox.getAt(index)!,
+                  index: index,
+                );
               },
             );
           },
