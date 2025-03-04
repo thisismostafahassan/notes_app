@@ -24,13 +24,14 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     });
     // Add note event
     on<AddNoteEvent>((event, emit) async {
-      emit(AddNoteInitialState());
+      emit(AddNoteLoadingState());
       try {
         await notesBox.add(
           Note(
             title: titleController.text,
             description: descriptionController.text,
-            date: DateTime.now(),
+            date: DateTime.now().toString(),
+            color: Colors.blueGrey.toARGB32(),
           ),
         );
 
@@ -38,7 +39,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         descriptionController.clear;
         emit(AddNoteSuccessState());
       } catch (e) {
-        emit(AddNoteFailState(message: 'Failure'));
+        emit(AddNoteFailState(message: e.toString()));
       }
     });
     // Remove note event
