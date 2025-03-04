@@ -39,13 +39,7 @@ class HomePage extends StatelessWidget {
             );
           },
         ),
-        floatingActionButton: MainFloatingActionButton(
-          context: context,
-          titleController: HomeBloc.titleController,
-          titleHint: 'Title',
-          descriptionController: HomeBloc.descriptionController,
-          descriptionHint: 'Description',
-        ),
+        floatingActionButton: MainFloatingActionButton(context: context),
       ),
     );
   }
