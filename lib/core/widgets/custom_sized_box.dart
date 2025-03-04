@@ -5,7 +5,12 @@ class CustomSizedBox extends StatelessWidget {
   final Widget? child;
   final double? height;
   final double? width;
-  const CustomSizedBox({super.key, this.child, this.height, this.width});
+  const CustomSizedBox({
+    super.key,
+    this.child,
+    this.height = 0,
+    this.width = 0,
+  });
 
   @override
   Widget build(BuildContext context) {

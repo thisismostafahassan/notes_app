@@ -1,1 +1,1 @@
-enum AddNote { loading, success, failure }
+enum NoteSates { initial, loading, success, failure }

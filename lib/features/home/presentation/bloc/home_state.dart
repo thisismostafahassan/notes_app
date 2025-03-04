@@ -11,10 +11,19 @@ class HomeInitial extends HomeState {}
 
 class SelectNoteState extends HomeState {}
 
-class AddNoteState extends HomeState {
-  final AddNote states;
+//
+class AddNoteInitialState extends HomeState {}
+
+class AddNoteSuccessState extends HomeState {}
+
+class AddNoteLoadingState extends HomeState {}
+
+class AddNoteFailState extends HomeState {
   final String message;
-  const AddNoteState({required this.states, required this.message});
+
+  const AddNoteFailState({required this.message});
 }
+
+//
 
 class RemoveNoteState extends HomeState {}

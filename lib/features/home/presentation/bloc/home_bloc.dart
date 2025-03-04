@@ -16,6 +16,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   var notesBox = Hive.box<Note>(Constants.kNotesBox);
   late Note selectedNote;
   late Note note;
+  NoteSates noteSates = NoteSates.initial;
   HomeBloc() : super(HomeInitial()) {
     on<SelectNoteEvent>((event, emit) {
       selectedNote = event.note;
@@ -23,8 +24,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     });
     // Add note event
     on<AddNoteEvent>((event, emit) async {
-      emit(AddNoteState(states: AddNote.loading, message: 'Loading'));
-
+      emit(AddNoteInitialState());
       try {
         await notesBox.add(
           Note(
@@ -33,11 +33,12 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
             date: DateTime.now(),
           ),
         );
+
         titleController.clear;
         descriptionController.clear;
-        emit(AddNoteState(states: AddNote.success, message: 'Success'));
+        emit(AddNoteSuccessState());
       } catch (e) {
-        emit(AddNoteState(states: AddNote.failure, message: 'Failure'));
+        emit(AddNoteFailState(message: 'Failure'));
       }
     });
     // Remove note event
