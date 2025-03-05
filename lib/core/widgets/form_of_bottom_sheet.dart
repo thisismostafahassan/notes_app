@@ -11,48 +11,53 @@ class FormOfBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            //
-            CustomTextFormField(
-              maxLines: 1,
-              controller: HomeBloc.titleController,
-              hint: "Title",
-            ),
-            //
-            CustomSizedBox(height: 50, width: 0.0),
-            //
-            CustomTextFormField(
-              maxLines: 5,
-              controller: HomeBloc.descriptionController,
-              hint: 'Description',
-            ),
-            //
-            CustomSizedBox(height: 100, width: 0.0),
-            //
-            SizedBox(
-              width: MediaQuery.of(context).size.width,
-              child: TextButton(
-                onPressed: () {
-                  AppRouter.homeBloc.add(AddNoteEvent());
-                  Navigator.of(context).pop();
-                },
-                style: ButtonStyle(
-                  fixedSize: WidgetStateProperty.all(Size(120.w, 145.h)),
-                  backgroundColor: WidgetStateProperty.all(Colors.blueGrey),
-                ),
-                child: Text(
-                  'Save',
-                  style: TextStyle(
-                    fontSize: 40.sp,
-                    color: const Color.fromARGB(255, 177, 165, 165),
+    return Padding(
+      padding: EdgeInsets.only(bottom: MediaQuery.viewInsetsOf(context).bottom),
+      child: Form(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              //
+              CustomTextFormField(
+                maxLines: 1,
+                controller: HomeBloc.titleController,
+                hint: "Title",
+              ),
+              //
+              CustomSizedBox(height: 50, width: 0.0),
+              //
+              CustomTextFormField(
+                maxLines: 5,
+                controller: HomeBloc.descriptionController,
+                hint: 'Description',
+              ),
+              //
+              CustomSizedBox(height: 100),
+              //
+              SizedBox(
+                width: MediaQuery.of(context).size.width,
+                child: TextButton(
+                  onPressed: () {
+                    AppRouter.homeBloc.add(AddNoteEvent());
+                    Navigator.of(context).pop();
+                  },
+                  style: ButtonStyle(
+                    fixedSize: WidgetStateProperty.all(Size(120.w, 140.h)),
+                    backgroundColor: WidgetStateProperty.all(Colors.blueGrey),
+                  ),
+                  child: Text(
+                    'Save',
+                    style: TextStyle(
+                      fontSize: 45.sp,
+                      color: const Color.fromARGB(255, 177, 165, 165),
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+              //
+              CustomSizedBox(height: 50),
+            ],
+          ),
         ),
       ),
     );
