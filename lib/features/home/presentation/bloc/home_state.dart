@@ -27,3 +27,6 @@ class AddNoteFailState extends HomeState {
 //
 
 class RemoveNoteState extends HomeState {}
+
+//
+class EditNoteState extends HomeState {}

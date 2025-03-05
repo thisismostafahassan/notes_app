@@ -25,3 +25,10 @@ class RemoveNoteEvent extends HomeEvent {
   final int index;
   const RemoveNoteEvent({required this.index});
 }
+
+//
+class EditNoteEvent extends HomeEvent {
+  final BuildContext context;
+
+  const EditNoteEvent({required this.context});
+}

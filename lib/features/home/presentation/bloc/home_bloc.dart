@@ -1,3 +1,5 @@
+// ignore_for_file: invalid_use_of_visible_for_testing_member
+
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,9 +16,15 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   static TextEditingController descriptionController = TextEditingController();
   final FocusNode titleFocusNode = FocusNode();
   final FocusNode descriptionFocusNode = FocusNode();
-  var notesBox = Hive.box<Note>(Constants.kNotesBox);
-  late Note selectedNote;
 
+  var notesBox = Hive.box<Note>(Constants.kNotesBox);
+  //
+  late Note selectedNote;
+  static TextEditingController selectedTitleController =
+      TextEditingController();
+  static TextEditingController selectedDescriptionController =
+      TextEditingController();
+  //
   HomeBloc() : super(HomeInitial()) {
     on<SelectNoteEvent>((event, emit) {
       selectedNote = event.note;
@@ -53,6 +61,14 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<RemoveNoteEvent>((event, emit) {
       notesBox.deleteAt(event.index);
       emit(RemoveNoteState());
+    });
+    // Edit note event
+    on<EditNoteEvent>((event, state) {
+      selectedNote.save();
+      selectedTitleController.clear();
+      selectedDescriptionController.clear();
+      Navigator.of(event.context).pop;
+      emit(EditNoteState());
     });
   }
 }
