@@ -26,13 +26,12 @@ class HomePage extends StatelessWidget {
         ),
         body: BlocBuilder<HomeBloc, HomeState>(
           builder: (context, state) {
-            final homeBloc = context.read<HomeBloc>();
             return ListView.builder(
-              itemCount: homeBloc.notesBox.length,
+              itemCount: AppRouter.homeBloc.notesBox.length,
               shrinkWrap: true,
               itemBuilder: (context, index) {
                 return NoteWidget(
-                  note: homeBloc.notesBox.getAt(index)!,
+                  note: AppRouter.homeBloc.notesBox.getAt(index)!,
                   index: index,
                 );
               },

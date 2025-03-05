@@ -14,7 +14,11 @@ class SelectNoteEvent extends HomeEvent {
 }
 
 //
-class AddNoteEvent extends HomeEvent {}
+class AddNoteEvent extends HomeEvent {
+  final BuildContext context;
+
+  const AddNoteEvent({required this.context});
+}
 
 //
 class RemoveNoteEvent extends HomeEvent {

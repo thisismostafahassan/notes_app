@@ -15,11 +15,26 @@ class FormOfBottomSheet extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(bottom: MediaQuery.viewInsetsOf(context).bottom),
       child: Form(
+        key: AppRouter.homeBloc.formKey,
+        autovalidateMode: AutovalidateMode.onUnfocus,
+
         child: SingleChildScrollView(
           child: Column(
             children: [
               //
               CustomTextFormField(
+                focusNode: AppRouter.homeBloc.titleFocusNode,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Please enter a title";
+                  }
+                  return null;
+                },
+                onFieldSubmitted: (_) {
+                  FocusScope.of(
+                    context,
+                  ).requestFocus(AppRouter.homeBloc.descriptionFocusNode);
+                },
                 maxLines: 1,
                 controller: HomeBloc.titleController,
                 hint: "Title",
@@ -28,6 +43,13 @@ class FormOfBottomSheet extends StatelessWidget {
               CustomSizedBox(height: 50, width: 0.0),
               //
               CustomTextFormField(
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Please enter a description";
+                  }
+                  return null;
+                },
+                focusNode: AppRouter.homeBloc.descriptionFocusNode,
                 maxLines: 5,
                 controller: HomeBloc.descriptionController,
                 hint: 'Description',
@@ -48,8 +70,9 @@ class FormOfBottomSheet extends StatelessWidget {
                             ? CircularProgressIndicator()
                             : TextButton(
                               onPressed: () {
-                                AppRouter.homeBloc.add(AddNoteEvent());
-                                Navigator.of(context).pop();
+                                AppRouter.homeBloc.add(
+                                  AddNoteEvent(context: context),
+                                );
                               },
                               style: ButtonStyle(
                                 fixedSize: WidgetStateProperty.all(
