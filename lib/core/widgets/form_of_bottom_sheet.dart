@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:notes_app/features/home/presentation/bloc/home_bloc.dart';
 
@@ -34,25 +35,45 @@ class FormOfBottomSheet extends StatelessWidget {
               //
               CustomSizedBox(height: 100),
               //
-              SizedBox(
-                width: MediaQuery.of(context).size.width,
-                child: TextButton(
-                  onPressed: () {
-                    AppRouter.homeBloc.add(AddNoteEvent());
-                    Navigator.of(context).pop();
-                  },
-                  style: ButtonStyle(
-                    fixedSize: WidgetStateProperty.all(Size(120.w, 140.h)),
-                    backgroundColor: WidgetStateProperty.all(Colors.blueGrey),
-                  ),
-                  child: Text(
-                    'Save',
-                    style: TextStyle(
-                      fontSize: 45.sp,
-                      color: const Color.fromARGB(255, 177, 165, 165),
-                    ),
-                  ),
-                ),
+              BlocBuilder<HomeBloc, HomeState>(
+                builder: (context, state) {
+                  return SizedBox(
+                    width:
+                        state is AddNoteLoadingState
+                            ? 30
+                            : MediaQuery.of(context).size.width,
+                    height: state is AddNoteLoadingState ? 30 : 50,
+                    child:
+                        state is AddNoteLoadingState
+                            ? CircularProgressIndicator()
+                            : TextButton(
+                              onPressed: () {
+                                AppRouter.homeBloc.add(AddNoteEvent());
+                                Navigator.of(context).pop();
+                              },
+                              style: ButtonStyle(
+                                fixedSize: WidgetStateProperty.all(
+                                  Size(120.w, 140.h),
+                                ),
+                                backgroundColor: WidgetStateProperty.all(
+                                  Colors.blueGrey,
+                                ),
+                              ),
+                              child: Text(
+                                'Save',
+                                style: TextStyle(
+                                  fontSize: 45.sp,
+                                  color: const Color.fromARGB(
+                                    255,
+                                    177,
+                                    165,
+                                    165,
+                                  ),
+                                ),
+                              ),
+                            ),
+                  );
+                },
               ),
               //
               CustomSizedBox(height: 50),

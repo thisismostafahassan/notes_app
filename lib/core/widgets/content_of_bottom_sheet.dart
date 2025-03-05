@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:notes_app/core/widgets/form_of_bottom_sheet.dart';
 import 'package:notes_app/features/home/presentation/bloc/home_bloc.dart';
 
@@ -22,9 +21,8 @@ class ContentOfBottomSheet extends StatelessWidget {
       child: BlocConsumer<HomeBloc, HomeState>(
         listener: (context, state) {},
         builder: (context, state) {
-          return ModalProgressHUD(
-            color: Colors.red,
-            inAsyncCall: state is AddNoteLoadingState ? true : false,
+          return AbsorbPointer(
+            absorbing: state is AddNoteLoadingState ? true : false,
             child: FormOfBottomSheet(),
           );
         },
