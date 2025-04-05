@@ -14,6 +14,4 @@ Notes App is a simple and efficient note-taking application that allows users to
 🛠️ SQLite – Local data storage.
 🛠️ Provider (State Management) – Efficient state management.
 
-🔗 GitHub Repository: Notes App Repository
-
 📩 Feel free to reach out for any suggestions or questions! 🚀
