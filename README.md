@@ -1,17 +1,19 @@
-# notes_app
+📌 Notes App – Project Summary
+🔹 Description:
+Notes App is a simple and efficient note-taking application that allows users to create, edit, and delete notes with a smooth and user-friendly experience.
 
-A new Flutter project.
+🔹 Key Features:
+✅ Add notes with a title and content.
+✅ Edit and delete notes easily.
+✅ Local data storage using SQLite.
+✅ Clean and intuitive UI for better usability.
+✅ Dark Mode support for an enhanced user experience.
 
-## Getting Started
+🔹 Tech Stack:
+🛠️ Flutter & Dart – Frontend development.
+🛠️ SQLite – Local data storage.
+🛠️ Provider (State Management) – Efficient state management.
 
-This project is a starting point for a Flutter application.
+🔗 GitHub Repository: Notes App Repository
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# notes_app
+📩 Feel free to reach out for any suggestions or questions! 🚀
